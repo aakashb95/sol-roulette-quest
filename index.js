@@ -52,3 +52,11 @@ const driverFunction = async () => {
 }
 
 driverFunction()
+
+const transaction = new web3.Transaction().add(
+  web3.SystemProgram.transfer({
+    fromPubkey: new web3.PublicKey(from.publicKey.toString()),
+    toPubkey: new web3.PublicKey(to.publicKey.toString()),
+    lamports: web3.LAMPORTS_PER_SOL,
+  }),
+)
